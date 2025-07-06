@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exandable Sidebar-Task1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="script.js" defer></script>
+
+</head>
+<body class="sb-expanded">
+    <aside>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span>Logo</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="active">
+                        <i class='bx  bx-home'  ></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx  bx-book-alt'  ></i> 
+                        <span>About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx  bx-chat'  ></i> 
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx  bx-cog'  ></i> 
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-resize-btn>
+                        <i class='bx  bx-chevrons-right'  ></i><span>Toggle</span>
+                    </a>
+                </li>
+
+            </ul>
+            
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Expandable Sidebar</h1>
+        <p>This is a simple expandable sidebar example. Click on the toggle button to show or hide the sidebar. The sidebar can be toggled to show or hide additional information.</p>
+    </main>
+
+    <script>
+        const resizeButton = document.querySelector('[data-resize-btn]');
+        resizeButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.classList.toggle('sb-expanded');
+        });
+    </script>
+</body>
+</html>

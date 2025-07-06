@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <form id="contact-form">
+            <h1>Contact Us</h1>
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Michael Scott" required/>
+
+            <label>Email Adress</label>
+            <input type="email" id="email" placeholder="FbTbH@example.com" required/>
+
+            <label>Subject</label>
+            <input type="text" id="subject" placeholder="I need help" required/>
+
+            <label>Message</label>
+            <textarea id="message" rows="5" placeholder="Type your message here.."></textarea>
+
+            <button type="submit">Send Message</button>
+            <p id="response-message"></p>
+        </form>
+    </div>
+
+</body>
+</html>
