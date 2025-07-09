@@ -42,8 +42,8 @@ Built using **React**, **Tailwind CSS**, and **Context API**, it allows you to c
 1. **Clone the repo**
 
 ```bash
-git clone https://github.com/your-username/job-tracker-app.git
-cd job-tracker-app
+git clone https://github.com/UsmanKhan555/Front-End-Web-Dev-Tasks.git
+cd Task6/job-tracker
 ```
 
 
