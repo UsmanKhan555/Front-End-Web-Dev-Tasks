@@ -71,7 +71,7 @@ function Dashboard() {
         <button
           onClick={exportJobs}
           className="bg-green-600 text-white px-4 py-2 rounded w-full sm:w-auto"
-        ><FiDownload /> Export Jobs
+        ><FiDownload />
           Export Jobs
         </button>
 
