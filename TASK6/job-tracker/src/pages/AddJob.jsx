@@ -3,9 +3,13 @@ import { useJobs } from "../context/JobContext";
 import { useNavigate } from "react-router-dom";
 
 function AddJob() {
+  // Access addJob function from global job context
   const { addJob } = useJobs();
+
+  // For redirecting to the dashboard after submission
   const navigate = useNavigate();
 
+  // Form state to track user input
   const [formData, setFormData] = useState({
     company: '',
     title: '',
@@ -14,10 +18,12 @@ function AddJob() {
     notes: ''
   });
 
+  // Update formData state as user types
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Submit form, add job to state, and redirect to dashboard
   const handleSubmit = (e) => {
     e.preventDefault();
     addJob(formData);

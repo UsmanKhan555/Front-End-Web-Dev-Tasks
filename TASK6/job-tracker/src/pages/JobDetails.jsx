@@ -5,29 +5,39 @@ import { FiEdit, FiTrash2 } from 'react-icons/fi';
 
 
 function JobDetails() {
+  // Get job ID from the URL parameters
   const { id } = useParams();
-  const navigate = useNavigate();
-  const { jobs, updateJob , deleteJob } = useJobs();    
 
+  // For navigating programmatically after delete/edit
+  const navigate = useNavigate();
+
+  // Access job list and update/delete functions from context
+  const { jobs, updateJob, deleteJob } = useJobs();
+
+  // Find the specific job based on the ID
   const job = jobs.find((job) => job.id === id);
 
+  // Local state for form mode and editable job data
   const [editing, setEditing] = useState(false);
   const [formData, setFormData] = useState({ ...job });
 
+  // Handle invalid ID or missing job
   if (!job) {
     return <p className="text-red-600">Job not found.</p>;
   }
 
+  // Handle changes to form fields (controlled input)
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  // Submit updated job info and exit editing mode
   const handleUpdate = (e) => {
     e.preventDefault();
     updateJob(id, formData);
     setEditing(false);
   };
 
-  
+  // Confirm and delete job, then navigate back to dashboard
   const handleDelete = () => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm('Are you sure you want to delete this job?')) {

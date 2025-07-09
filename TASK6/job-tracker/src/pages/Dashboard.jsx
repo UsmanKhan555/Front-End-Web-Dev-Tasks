@@ -6,38 +6,61 @@ import { FiDownload, FiUpload } from 'react-icons/fi';
 function Dashboard() {
     const { jobs, addJob } = useJobs();
 
+    /**
+     * Export jobs data as a JSON file
+     * Creates a downloadable JSON file containing all job applications
+     */
     const exportJobs = () => {
+        // Convert jobs array to formatted JSON string with 2-space indentation
         const dataStr = JSON.stringify(jobs, null, 2);
+        
+        // Create a blob object with the JSON data and specify MIME type
         const blob = new Blob([dataStr], { type: "application/json" });
+        
+        // Create a temporary URL for the blob
         const url = URL.createObjectURL(blob);
 
+        // Create a temporary anchor element for triggering download
         const link = document.createElement("a");
         link.href = url;
-        link.download = 'job-applications.json';
-        link.click();
+        link.download = 'job-applications.json'; // Set the filename for download
+        link.click(); // Programmatically trigger the download
 
+        // Clean up by revoking the temporary URL to free memory
         URL.revokeObjectURL(url);
     };
 
     const importJobs = async (e) => {
+        // Get the first selected file from the input
         const file = e.target.files[0];
-        if (!file) return;
+        if (!file) return; // Exit if no file was selected
 
+        // Read the file content as text
         const text = await file.text();
+        
         try {
-        const importedJobs = JSON.parse(text);
-        if (!Array.isArray(importedJobs)) throw new Error();
+            // Parse the JSON content
+            const importedJobs = JSON.parse(text);
+            
+            // Validate that the parsed data is an array
+            if (!Array.isArray(importedJobs)) throw new Error();
 
-        importedJobs.forEach((job) => {
-            if (job.company && job.title && job.status) {
-            addJob(job);
-            }
-        });
-        alert('Jobs imported successfully!');
+            // Iterate through each job in the imported data
+            importedJobs.forEach((job) => {
+                // Validate that each job has required fields before adding
+                if (job.company && job.title && job.status) {
+                    addJob(job);
+                }
+            });
+            
+            // Show success message to user
+            alert('Jobs imported successfully!');
+            
         } catch {
-        alert('Invalid JSON file.');
+            // Show error message if JSON parsing fails or data is invalid
+            alert('Invalid JSON file.');
         }
-  };
+    };
 
 
     return (
