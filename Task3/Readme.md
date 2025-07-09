@@ -40,12 +40,6 @@ Design and build a full webpage for a fictional product using:
 
 ---
 
-## 🖼️ Screenshots
-
-_Optional: Add screenshots of the live page here if hosted on GitHub or Netlify._
-
----
-
 ## ⚙️ Features
 
 - Fully responsive design (mobile & desktop friendly)
