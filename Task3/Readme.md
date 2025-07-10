@@ -52,15 +52,11 @@ Design and build a full webpage for a fictional product using:
 
 ## 📂 Folder Structure
 
-taskflow-landing/
+TASK3/
 
 ├── index.html
 
 ├── style.css
-
-├── script.js         # (optional if interactive features added)
-
-├── /assets           # Contains local SVG icons (facebook.svg, bell.svg, etc.)
 
 ---
 

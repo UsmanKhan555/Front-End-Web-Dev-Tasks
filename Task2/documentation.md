@@ -16,7 +16,7 @@ A responsive contact form web application built with HTML, CSS, and JavaScript. 
 ## File Structure
 
 ```
-task2-contact-form/
+task2/
 ├── index.html          # Main HTML structure
 ├── style.css           # Stylesheet and responsive design
 └── script.js           # JavaScript functionality and validation
